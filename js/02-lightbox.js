@@ -23,19 +23,21 @@ function  createGalleryMarkup(galleryItems) {
         .join('');
 }
 
+const box = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
+    enableKeyboard: true,
+    showCounter: false,
+    scrollZoom: false,
+    close: false,
+});
+
 function onGalleryClick(event) {
     event.preventDefault();
     if (event.target.nodeName !== 'IMG') {
         return;
     }
-    const lightbox = new SimpleLightbox('.gallery a', {
-        captionsData: 'alt',
-        captionDelay: 250,
-        enableKeyboard: true,
-        showCounter: false,
-        scrollZoom: false,
-        close: false
-    });    
+    box.open(event.target.parentNode.href);
 }
 
 console.log(galleryItems);
