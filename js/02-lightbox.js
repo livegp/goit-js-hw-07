@@ -6,7 +6,7 @@ const galleryMarkup = createGalleryMarkup(galleryItems);
 gallery.insertAdjacentHTML('beforeend', galleryMarkup);
 gallery.addEventListener('click', onGalleryClick);
 
-function createGalleryMarkup(galleryItems) {
+function  createGalleryMarkup(galleryItems) {
     return galleryItems
         .map(({ preview, original, description }) => {
             return `
@@ -34,11 +34,8 @@ function onGalleryClick(event) {
         enableKeyboard: true,
         showCounter: false,
         scrollZoom: false,
-        close: false,
-        onShow: () => {
-            document.addEventListener('keydown', onEscPress);
-        }
-    }); 
+        close: false
+    });    
 }
 
 console.log(galleryItems);

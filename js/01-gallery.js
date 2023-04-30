@@ -36,6 +36,7 @@ function onGalleryClick(event) {
     function onEscPress(event) {
         if (event.code === 'Escape') {
             instance.close();
+            gallery.removeEventListener('keydown', onEscPress);
         }
     }
 }
